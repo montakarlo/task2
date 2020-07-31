@@ -15,7 +15,7 @@ export class Pageheader extends Component {
             id="input_password"
             name="password"
             onChange={(e)=> {
-              this.props.onChangeSearchValue(e.target.value.toLowerCase())
+              this.props.onChangeSearchValue(e.target.value)
             }}
             placeholder="Search..."
             >

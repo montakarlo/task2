@@ -8,11 +8,10 @@ export class TabItem extends Component {
   
   componentWillMount() {
     if(this.props.path){
-      this.props.onFetch(`http://swapi.dev/api${this.props.path}`)
+      this.props.onFetch(`https://swapi.dev/api${this.props.path}`)
     }else {
       this.props.history.push('/')
     }
-
   }
   
   render(){
@@ -34,7 +33,7 @@ export class TabItem extends Component {
             <div className="tabItems__Container">
               {Array.from(itemsMapSorted).map((element, index) => {
                 const urlSlice = element[1].url.slice(20,-1)
-                if (element[0].includes(this.props.searchValue)){
+                if (element[0].toLowerCase().includes(this.props.searchValue.toLowerCase())){
                   return(
                     <div className="linkItem" key={index}>
                       <a key={index} id = {"name"+index} onClick={()=>{
@@ -55,20 +54,17 @@ export class TabItem extends Component {
                 {dataKeys.map((element, index) => {
                   let urlSlice = '/'
                   if (items[element] !== null && items[element] !== "n/a"&& items[element].length !==0 && element !== "url" && element !== "created" && element !== "edited"){
-                    // console.log(items[element]);
-                    if (String(element).includes(this.props.searchValue)){
+                    if (String(element).toLowerCase().includes(this.props.searchValue.toLowerCase()) || String(items[element]).toLowerCase().includes(this.props.searchValue.toLowerCase())){
                       if (String(items[element]).includes('http://') && !Array.isArray(items[element])){
                         urlSlice = items[element].slice(20,-1)
                         return(
                           <div className="linkItem" key={index}>
                             <p>{element.replace(/[\_]/g, " ")}: </p>
                             <div className="linkItem__links">
-                              {String(element).includes(this.props.searchValue)? 
-                                <a key={index} id = {"link"+index} onClick={()=>{
-                                  this.props.onChangePath(urlSlice)
-                                  this.props.onFetch(`http://swapi.dev/api${urlSlice}`)
-                                }}>Go to see #{items[element].slice(-3).replace(/[\""s/"]/g, "")}</a>
-                              : ''}
+                              <a key={index} id = {"link"+index} onClick={()=>{
+                                this.props.onChangePath(urlSlice)
+                                this.props.onFetch(`http://swapi.dev/api${urlSlice}`)
+                              }}>Go to see #{items[element].slice(-3).replace(/[\""s/"]/g, "")}</a>
                             </div>
                           </div>
                         )
@@ -105,11 +101,6 @@ export class TabItem extends Component {
                         }
                       }
                     }
-
-
-
-
-
                   }
                 })}
               </div>

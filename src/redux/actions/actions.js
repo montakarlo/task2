@@ -7,7 +7,7 @@ import {FETCH_DATA,
 export function fetchData(link){
   return async dispatch => {
     await dispatch(showLoader())
-    const response = await fetch(link)
+    const response = await fetch(link.replace(/http:/g, "https:"))
     let json = await response.json();
     await dispatch({type: FETCH_DATA, payload: json});
     await dispatch(hideLoader())
