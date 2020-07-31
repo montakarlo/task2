@@ -1,8 +1,9 @@
-import {FETCH_DATA, CHANGE_PATH} from '../actions/actionTypes';
+import {FETCH_DATA, CHANGE_PATH, CHANGE_SEARCH_VALUE} from '../actions/actionTypes';
 
 const initialState = {
   data: [],
   // path: '/'
+  searchValue: ''
 }
 
 
@@ -22,6 +23,10 @@ export default function tabItem (state = initialState, action) {
     case CHANGE_PATH:
       return {
         ...state, path: action.payload
+      }
+    case CHANGE_SEARCH_VALUE:
+      return {
+        ...state, searchValue: action.payload
       }
     default:
       return state

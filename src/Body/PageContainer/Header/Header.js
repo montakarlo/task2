@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 import {fetchData,changePath} from '../../../redux/actions/actions';
 
-
 function Header (props) {
   return (
     <div className="header">

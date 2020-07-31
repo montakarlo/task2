@@ -1,7 +1,8 @@
 import {FETCH_DATA,
         SHOW_LOADER,
         HIDE_LOADER,
-        CHANGE_PATH} from './actionTypes'
+        CHANGE_PATH,
+        CHANGE_SEARCH_VALUE} from './actionTypes'
 
 export function fetchData(link){
   // console.log(link);
@@ -32,5 +33,12 @@ export function changePath(path) {
   return {
     type: CHANGE_PATH,
     payload: path
+  }
+}
+
+export function changeSearchValue(value) {
+  return {
+    type: CHANGE_SEARCH_VALUE,
+    payload: value
   }
 }

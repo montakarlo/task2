@@ -6,7 +6,7 @@ import Footer from './Footer/Footer'
 import {connect} from 'react-redux'
 
 
-export class Chat extends Component {
+export class Body extends Component {
 
   render(){
     return(
@@ -25,4 +25,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, null)(Chat)
+export default connect(mapStateToProps, null)(Body)

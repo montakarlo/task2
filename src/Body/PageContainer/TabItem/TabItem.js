@@ -14,16 +14,13 @@ export class TabItem extends Component {
     }
 
   }
-
+  
   render(){
     if (this.props.loading){
       return <div className="centeredSpinner"><Loader /></div>
     } else if (this.props.data){
       let dataKeys = Object.keys(this.props.data)
-      console.log(this.props);
-      // console.log(dataKeys);
       if (!dataKeys.includes('name') && !dataKeys.includes('title')){
-        // console.log('render', this.props);
         const items = this.props.data
         let itemsMap
         if (Object.keys(items[0]).includes('title')){
@@ -35,96 +32,84 @@ export class TabItem extends Component {
         return (
           <div className="tabItems">
             <div className="tabItems__Container">
-              <div className='searchContainer'>
-                <input
-                  type="text"
-                  id="input_password"
-                  name="password"
-                  // onChange={this.onChange}
-                  placeholder="Search..."
-                  >
-                </input>
-              </div>
               {Array.from(itemsMapSorted).map((element, index) => {
                 const urlSlice = element[1].url.slice(20,-1)
-                return(
-                  <div className="linkItem" key={index}>
-                    <a key={index} id = {"name"+index} onClick={()=>{
-                      this.props.onChangePath(urlSlice)
-                      this.props.onFetch(`http://swapi.dev/api${urlSlice}/`)
-                    }}>{element[0]}</a>
-                  </div>
-                )
+                if (element[0].includes(this.props.searchValue)){
+                  return(
+                    <div className="linkItem" key={index}>
+                      <a key={index} id = {"name"+index} onClick={()=>{
+                        this.props.onChangePath(urlSlice)
+                        this.props.onFetch(`http://swapi.dev/api${urlSlice}/`)
+                      }}>{element[0]}</a>
+                    </div>
+                  )
+                }
               })}
             </div>
           </div>
         )}else{
           const items = this.props.data
-          // console.log("items", items);
-          // console.log("dataKeys", dataKeys);
           return(
             <div className="tabItems">
               <div className="tabItems__Container">
-                <div className='searchContainer'>
-                  <input
-                    type="text"
-                    id="input_password"
-                    name="password"
-                    // onChange={this.onChange}
-                    placeholder="Search..."
-                    >
-                  </input>
-                </div>
                 {dataKeys.map((element, index) => {
                   let urlSlice = '/'
                   if (items[element] !== null && items[element] !== "n/a"&& items[element].length !==0 && element !== "url" && element !== "created" && element !== "edited"){
                     // console.log(items[element]);
-                    if (String(items[element]).includes('http://') && !Array.isArray(items[element])){
-                      urlSlice = items[element].slice(20,-1)
-                      return(
-                        <div className="linkItem" key={index}>
-                          <p>{element.replace(/[\_]/g, " ")}: </p>
-                          <div className="linkItem__links">
-                            <a key={index} id = {"link"+index} onClick={()=>{
-                              this.props.onChangePath(urlSlice)
-                              this.props.onFetch(`http://swapi.dev/api${urlSlice}`)
-                            }}>Go to see #{items[element].slice(-3).replace(/[\""s/"]/g, "")}</a>
-                          </div>
-                        </div>
-                      )
-                    }else if(Array.isArray(items[element])){
-                      return(
-                        <div className="linkItem linkItem_array" key={index}>
-                          <p>{element.replace(/[\_]/g, " ")}: </p>
-                          <div className="linkItem__links">
-                            {items[element].map((link, index) => {
-                              return(  
-                                <a key={index} id = {"arrayLink"+index} onClick={()=>{
-                                  this.props.onChangePath(link.slice(20,-1))
-                                  this.props.onFetch(`http://swapi.dev/api${link.slice(20,-1)+"/"}`)
-                                }}>Go to see #{link.slice(-3).replace(/[\""s/"]/g, "")}</a>
-                              )
-                            })}
-                          </div>
-                        </div>
-                      )
-                    }
-                    else{
-                      console.log(element);
-                      if (element == "opening_crawl") {
+                    if (String(element).includes(this.props.searchValue)){
+                      if (String(items[element]).includes('http://') && !Array.isArray(items[element])){
+                        urlSlice = items[element].slice(20,-1)
                         return(
                           <div className="linkItem" key={index}>
-                            <p>{element.replace(/[\_]/g, " ")}: </p> <p className="linkItem__text">{items[element]}</p>
+                            <p>{element.replace(/[\_]/g, " ")}: </p>
+                            <div className="linkItem__links">
+                              {String(element).includes(this.props.searchValue)? 
+                                <a key={index} id = {"link"+index} onClick={()=>{
+                                  this.props.onChangePath(urlSlice)
+                                  this.props.onFetch(`http://swapi.dev/api${urlSlice}`)
+                                }}>Go to see #{items[element].slice(-3).replace(/[\""s/"]/g, "")}</a>
+                              : ''}
+                            </div>
                           </div>
-                        ) 
-                      }else {
+                        )
+                      }else if(Array.isArray(items[element])){
                         return(
-                          <div className="linkItem" key={index}>
-                            <p>{element.replace(/[\_]/g, " ")}: </p> <p>{items[element]}</p>
+                          <div className="linkItem linkItem_array" key={index}>
+                            <p>{element.replace(/[\_]/g, " ")}: </p>
+                            <div className="linkItem__links">
+                              {items[element].map((link, index) => {
+                                return(
+                                  <a key={index} id = {"arrayLink"+index} onClick={()=>{
+                                    this.props.onChangePath(link.slice(20,-1))
+                                    this.props.onFetch(`http://swapi.dev/api${link.slice(20,-1)+"/"}`)
+                                  }}>Go to see #{link.slice(-3).replace(/[\""s/"]/g, "")}</a>
+                                )
+                              })}
+                            </div>
                           </div>
                         )
                       }
+                      else{
+                        if (element == "opening_crawl") {
+                          return(
+                            <div className="linkItem" key={index}>
+                              <p>{element.replace(/[\_]/g, " ")}: </p> <p className="linkItem__text">{items[element]}</p>
+                            </div>
+                          ) 
+                        }else {
+                          return(
+                            <div className="linkItem" key={index}>
+                              <p>{element.replace(/[\_]/g, " ")}: </p> <p>{items[element]}</p>
+                            </div>
+                          )
+                        }
+                      }
                     }
+
+
+
+
+
                   }
                 })}
               </div>
@@ -143,6 +128,7 @@ function mapStateToProps(state) {
     loading: state.appReducer.loading,
     data: state.tabItem.data.results,
     path: state.tabItem.path,
+    searchValue: state.tabItem.searchValue,
   }
 }
 
