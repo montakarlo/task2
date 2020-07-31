@@ -5,7 +5,6 @@ import {FETCH_DATA,
         CHANGE_SEARCH_VALUE} from './actionTypes'
 
 export function fetchData(link){
-  // console.log(link);
   return async dispatch => {
     await dispatch(showLoader())
     const response = await fetch(link)
