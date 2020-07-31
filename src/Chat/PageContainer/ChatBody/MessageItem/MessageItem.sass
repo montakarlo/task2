@@ -1,0 +1,109 @@
+.messageItem
+  margin: 0 56px 8px 16px
+  display: flex
+  max-width: 50%
+  align-items: flex-end
+
+  &__container
+    padding: 1.4rem
+    background-image: linear-gradient(225deg, #9d5ece 0%, #4d1a9e 100%);
+    color: #ffffff
+    font-size: 1.5rem
+    border-radius: 12px
+    position: relative
+    display: flex
+    align-items: center
+    margin-right: 7px
+    -webkit-box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.51)
+    -moz-box-shadow: 2px 2px 4px 3pxrgba(0,0,0,0.51)
+    box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.51)
+    &_my
+      padding: 1.4rem
+      background-image: linear-gradient(225deg, #4d1a9e 0%, #9d5ece 100%);
+      color: #ffffff
+      font-size: 1.5rem
+      border-radius: 12px
+      position: relative
+      display: flex
+      align-items: center
+      margin-left: 7px
+      -webkit-box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.51)
+      -moz-box-shadow: 2px 2px 4px 3pxrgba(0,0,0,0.51)
+      box-shadow: 2px 2px 4px 3px rgba(0,0,0,0.51)
+.avatar
+  width: 40px
+  height: 40px
+  border-radius: 50px
+  margin-right: 10px
+  margin-bottom: 3px
+  border: 1px solid #ffffff
+
+.text
+  margin: 0 5px 3px 0
+
+.messageItem:hover .edit 
+  display: block
+
+.date
+  position: absolute
+  right: 0
+  bottom: 0
+  margin: 0 7px 3px 0
+  font-size: 11px
+  &_my
+    position: absolute
+    right: 0
+    bottom: 0
+    margin: 0 7px 3px 0
+    font-size: 11px
+
+.edit
+  position: absolute
+  right: 0
+  top: 0
+  margin: 3px 7px 0 0
+  font-size: 10px
+  display: none
+  &:visited
+    color: #ffffff
+
+.fas, .fa-heart
+  margin-bottom: 3px
+  font-size: 16px
+  color: #ffffff
+  opacity: 0.4
+
+.isLiked 
+  color: #b62e2e !important
+  opacity: 1 !important
+
+.fa-trash-alt
+  margin: 10px 2px 10px 0
+
+.messageItem_left
+  display: flex
+  width: 100%
+  justify-content: flex-start
+
+.messageItem_right
+  display: flex
+  width: 100%
+  justify-content: flex-end
+
+.messageItem_topBottom
+  &:first-child
+    margin-top: 16px !important
+  &:last-child
+    margin-bottom: 16px !important
+
+.iconsContainer
+  height: 100%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: flex-end
+
+
+@media (max-width: 920px)
+  .messageItem
+    max-width: 70%

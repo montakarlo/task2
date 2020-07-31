@@ -1,0 +1,118 @@
+.linkItem
+  margin: 10px
+  display: flex
+  &__text
+    padding: 1.5rem 2rem !important
+  & a
+    font-size: 2rem
+    color: #fd6bff
+    cursor: pointer
+    &:hover
+      color: #ff06b4
+  & p
+    margin: 0 15px 0 0
+    background-image: linear-gradient(45deg, #161a1f 0%, #2d3339 100%)
+    color: #fff
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 2rem
+    line-height: 2.7rem
+    box-sizing: border-box
+    padding: 0.4rem 1.5rem
+    border-radius: 8px
+    -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+    -moz-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+    box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+
+  &__links
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    &>a
+      margin: 0 0 10px 0
+      background-image: linear-gradient(45deg, #161a1f 0%, #2d3339 100%)
+      display: flex
+      justify-content: center
+      align-items: center
+      font-size: 2rem
+      line-height: 2.7rem
+      box-sizing: border-box
+      padding: 0.4rem 1.5rem
+      border-radius: 8px
+      -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+      -moz-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+      box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+      &:last-child
+        margin-bottom:0 !important
+
+.centeredSpinner
+  width: 100%
+  height: 100%
+  align-items: center
+  display: flex
+  justify-content: center
+
+.tabItems
+  margin-top: 15px
+  border-radius: 15px
+  box-shadow: inset 0px 0px 12px 0px rgba(0,0,0,0.8)
+  background-color: #1a1f23
+  width: 100%
+  height: 88.5%
+  overflow: hidden
+  &__Container
+    width: 104%
+    height: 100%
+    overflow-y: scroll
+    overflow-x: hidden
+    scroll-behavior: smooth
+    box-sizing: content-box
+    background-color: transparent
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    box-sizing: border-box
+    padding: 10px 25px 10px 10px
+    font-size: 16px
+    color: #ffffff
+    &>p   
+      color: #ffffff
+      margin: 6px
+
+.searchContainer
+  display: flex
+  width: 50%
+
+input
+  margin: 10px 20px 10px 10px
+  border-radius: 12px
+  box-shadow: inset 0px 0px 12px 0px rgba(0,0,0,0.8)
+  width: 100%
+  height: 45px
+  box-sizing: border-box
+  padding: 8px 23px 8px 17px
+  font-size: 15px
+  font-weight: 500
+  outline: none
+  border: none
+  resize: none
+  line-height: 20px
+  background: rgba(0,0,0,0)
+  color: rgb(190, 190, 190)
+  &:focus
+    color: #ffffff
+
+@media (max-width: 920px)
+
+  .searchContainer
+    width: 100%
+  .tabItems
+    height: 89.5%
+
+@media (max-width: 750px)
+
+  .searchContainer
+    width: 100%
+  .tabItems
+    height: 96%

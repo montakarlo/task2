@@ -1,0 +1,74 @@
+.inputArea
+  margin-top: 15px
+  width: 100%
+  height: 14%
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+.inputAreaContainer
+  border-radius: 15px
+  width: 100%
+  height: 85px
+  overflow: hidden
+  box-shadow: inset 0px 0px 12px 0px rgba(0,0,0,0.8)
+  background-color: #1a1f23
+  &:focus
+    box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, .6);
+
+textarea
+  width: 102%
+  height: 94%
+  box-sizing: border-box
+  padding: 8px 23px 8px 17px
+  font-size: 15px
+  font-weight: 500
+  outline: none
+  border: none
+  resize: none
+  line-height: 20px
+  background: rgba(0,0,0,0)
+  color: rgb(190, 190, 190)
+
+.inputArea__button
+  margin-left: 15px
+  height: 45px
+  width: 130px
+  border-radius: 12px
+  border: none
+  box-sizing: border-box
+  font-size: 22px
+  line-height: 20px
+  outline: none
+  background-image: linear-gradient(225deg, #9d5ece 0%, #4d1a9e 100%)
+  color: #fff
+  -webkit-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+  -moz-box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+  box-shadow: 3px 3px 6px 4px rgba(0,0,0,0.51)
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  
+  &:hover
+    background-image: linear-gradient(225deg, #c476ff 0%, #6925d6 100%)
+  &:focus
+    outline: none
+
+@media (max-width: 750px)
+  .inputArea
+    flex-direction: column
+    justify-self: center
+
+  .inputAreaContainer
+    border-radius: 15px
+    width: 100%
+    height: 55px
+    overflow: hidden
+    box-shadow: inset 0px 0px 12px 0px rgba(0,0,0,0.8)
+    background-color: #1a1f23
+    margin-bottom: 15px
+  .inputArea__button
+    margin: 0
