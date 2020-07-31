@@ -2,5 +2,7 @@ import React from 'react';
 import './Footer.sass'
 
 export default () => (
-  <span className ="footer">The Star Wars API</span>
+  <div className="footerContainer">
+    <p className ="footer">The Star Wars API</p>
+  </div>
 )

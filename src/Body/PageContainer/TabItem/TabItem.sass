@@ -1,3 +1,38 @@
+.centeredSpinner
+  width: 100%
+  height: 100%
+  display: grid
+  grid-template-rows: 1fr
+
+.tabItems
+  margin-top: 15px
+  border-radius: 15px
+  box-shadow: inset 0px 0px 12px 0px rgba(0,0,0,0.8)
+  background-color: #1a1f23
+  width: 100%
+  height: 1fr
+  overflow: hidden
+  &__Container
+    width: 104%
+    height: 100%
+    overflow-y: scroll
+    overflow-x: hidden
+    scroll-behavior: smooth
+    box-sizing: content-box
+    background-color: transparent
+
+    box-sizing: border-box
+    padding: 10px 25px 10px 10px
+    font-size: 16px
+    color: #ffffff
+    &>p   
+      color: #ffffff
+      margin: 6px
+
+.searchContainer
+  display: flex
+  width: 50%
+  
 .linkItem
   margin: 10px
   display: flex
@@ -47,55 +82,14 @@
       &:last-child
         margin-bottom:0 !important
 
-.centeredSpinner
-  width: 100%
-  height: 100%
-  align-items: center
-  display: flex
-  justify-content: center
-
-.tabItems
-  margin-top: 15px
-  border-radius: 15px
-  box-shadow: inset 0px 0px 12px 0px rgba(0,0,0,0.8)
-  background-color: #1a1f23
-  width: 100%
-  height: 86%
-  overflow: hidden
-  &__Container
-    width: 104%
-    height: 100%
-    overflow-y: scroll
-    overflow-x: hidden
-    scroll-behavior: smooth
-    box-sizing: content-box
-    background-color: transparent
-    // display: flex
-    // flex-direction: column
-    // align-items: flex-start
-    box-sizing: border-box
-    padding: 10px 25px 10px 10px
-    font-size: 16px
-    color: #ffffff
-    &>p   
-      color: #ffffff
-      margin: 6px
-
-.searchContainer
-  display: flex
-  width: 50%
-
 @media (max-width: 920px)
 
   .searchContainer
     width: 100%
-  .tabItems
-    height: 87%
+
 
 @media (max-width: 750px)
   .container
-    justify-content: flex-start
+    // justify-content: flex-start
   .searchContainer
     width: 100%
-  .tabItems
-    height: 93%
