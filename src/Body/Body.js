@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './Chat.sass'
+import './Body.sass'
 import PageContainer from './PageContainer/PageContainer'
 import Pageheader from './Pageheader/Pageheader'
 import Footer from './Footer/Footer'

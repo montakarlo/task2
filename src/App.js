@@ -1,11 +1,11 @@
 import React from 'react';
-import Chat from './Chat/Chat'
+import Body from './Body/Body'
 import './App.sass'
 
 function App() {
   return (
       <div className="pageContainer">
-        <Chat />
+        <Body />
       </div>
   );
 }

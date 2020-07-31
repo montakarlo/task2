@@ -12,7 +12,6 @@ export default function appReducer (state = initialState, action) {
         loading: action.payload
       }
     case HIDE_LOADER:
-      // console.log('finish mounting');
       return {
         loading: action.payload
       }

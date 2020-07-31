@@ -1,15 +1,12 @@
 import React from 'react';
 import './PageContainer.sass'
 import Header from './Header/Header'
-import ChatBody from './ChatBody/ChatBody'
 import TabItem from './TabItem/TabItem'
-import {BrowserRouter, Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 
 export default (props) => (
-  <div className="chatContainer">
+  <div className="bodyContainer">
     <Header />
-    {/* <ChatBody />
-    <InputArea /> */}
     <Route exact path="/"/>
     <Route path="/films" component={TabItem}/>
     <Route path="/people" component={TabItem}/>

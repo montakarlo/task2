@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import './TabItem.sass'
 import {connect} from 'react-redux'
-import {Route, NavLink, Redirect} from 'react-router-dom'
 import {fetchData, changePath} from '../../../redux/actions/actions';
 import {Loader} from '../../Loader/Loader'
-import { data } from '../../../messages';
 
 export class TabItem extends Component {
   
