@@ -38,7 +38,7 @@ export class TabItem extends Component {
                     <div className="linkItem" key={index}>
                       <a key={index} id = {"name"+index} onClick={()=>{
                         this.props.onChangePath(urlSlice)
-                        this.props.onFetch(`http://swapi.dev/api${urlSlice}/`)
+                        this.props.onFetch(`https://swapi.dev/api${urlSlice}/`)
                       }}>{element[0]}</a>
                     </div>
                   )
@@ -55,7 +55,7 @@ export class TabItem extends Component {
                   let urlSlice = '/'
                   if (items[element] !== null && items[element] !== "n/a"&& items[element].length !==0 && element !== "url" && element !== "created" && element !== "edited"){
                     if (String(element).toLowerCase().includes(this.props.searchValue.toLowerCase()) || String(items[element]).toLowerCase().includes(this.props.searchValue.toLowerCase())){
-                      if (String(items[element]).includes('http://') && !Array.isArray(items[element])){
+                      if (String(items[element]).includes('https://') && !Array.isArray(items[element])){
                         urlSlice = items[element].slice(20,-1)
                         return(
                           <div className="linkItem" key={index}>
@@ -63,7 +63,7 @@ export class TabItem extends Component {
                             <div className="linkItem__links">
                               <a key={index} id = {"link"+index} onClick={()=>{
                                 this.props.onChangePath(urlSlice)
-                                this.props.onFetch(`http://swapi.dev/api${urlSlice}`)
+                                this.props.onFetch(`https://swapi.dev/api${urlSlice}`)
                               }}>Go to see #{items[element].slice(-3).replace(/[\""s/"]/g, "")}</a>
                             </div>
                           </div>
@@ -77,7 +77,7 @@ export class TabItem extends Component {
                                 return(
                                   <a key={index} id = {"arrayLink"+index} onClick={()=>{
                                     this.props.onChangePath(link.slice(20,-1))
-                                    this.props.onFetch(`http://swapi.dev/api${link.slice(20,-1)+"/"}`)
+                                    this.props.onFetch(`https://swapi.dev/api${link.slice(20,-1)+"/"}`)
                                   }}>Go to see #{link.slice(-3).replace(/[\""s/"]/g, "")}</a>
                                 )
                               })}
