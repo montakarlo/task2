@@ -63,7 +63,7 @@ export class TabItem extends Component {
                             <div className="linkItem__links">
                               <a key={index} id = {"link"+index} onClick={()=>{
                                 this.props.onChangePath(urlSlice)
-                                this.props.onFetch(`https://swapi.dev/api${urlSlice}`)
+                                this.props.onFetch(`https://swapi.dev/api${urlSlice}/`)
                               }}>Go to see #{items[element].slice(-3).replace(/[\""s/"]/g, "")}</a>
                             </div>
                           </div>
