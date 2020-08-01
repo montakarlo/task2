@@ -55,7 +55,7 @@ export class TabItem extends Component {
                   let urlSlice = '/'
                   if (items[element] !== null && items[element] !== "n/a"&& items[element].length !==0 && element !== "url" && element !== "created" && element !== "edited"){
                     if (String(element).toLowerCase().includes(this.props.searchValue.toLowerCase()) || String(items[element]).toLowerCase().includes(this.props.searchValue.toLowerCase())){
-                      if (String(items[element]).includes('https://') && !Array.isArray(items[element])){
+                      if (String(items[element]).includes('http://') && !Array.isArray(items[element])){
                         urlSlice = items[element].slice(20,-1)
                         return(
                           <div className="linkItem" key={index}>
